@@ -39,7 +39,7 @@ func TestHello_Hello(t *testing.T) {
 	})
 
 	t.Run("should return 200", func(t *testing.T) {
-		resBody := ex.POST("/v1/hello").
+		resBody := ex.GET("/v1/hello").
 			Expect().
 			Status(http.StatusOK).
 			JSON().Object()
