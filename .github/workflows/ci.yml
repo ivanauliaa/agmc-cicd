@@ -16,4 +16,22 @@ jobs:
         with:
           go-version: '1.17'
       
-      - run: go test -v ./...
+      - name: run test
+        run: go test -v ./...
+        env:
+          DB_USER_TEST: ${{ secrets.DB_USER_TEST }}
+          DB_PASS_TEST: ${{ secrets.DB_PASS_TEST }}
+          DB_HOST_TEST: ${{ secrets.DB_HOST_TEST }}
+          DB_PORT_TEST: ${{ secrets.DB_PORT_TEST }}
+          DB_NAME_TEST: ${{ secrets.DB_NAME_TEST }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          MONGO_USER: ${{ secrets.MONGO_USER }}
+          MONGO_PASS: ${{ secrets.MONGO_PASS }}
+          MONGO_HOST: ${{ secrets.MONGO_HOST }}
+          MONGO_PORT: ${{ secrets.MONGO_PORT }}
+          MONGO_NAME: ${{ secrets.MONGO_NAME }}
